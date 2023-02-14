@@ -10,7 +10,8 @@ import Foundation
 
 struct QuizBrain {
     var questionNumber = 0
-
+    var score = 0
+    
     let quiz = [
         ["Four + Two is equal to Six","True"],
         ["The first man in space was bald", "False"],
@@ -18,9 +19,10 @@ struct QuizBrain {
         ["Crickets chirp by rubbing their legs together", "True"]
     ]
     
-    func checkAnswer (_ userAnswer: String) -> Bool {
+    mutating func checkAnswer (_ userAnswer: String) -> Bool {
         if userAnswer == quiz[questionNumber][1] {
             //User gets it right
+            score += 1
             return true
         }
         else {
